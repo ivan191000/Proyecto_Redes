@@ -1,10 +1,7 @@
 package com.proyecto_redes.demo.controller;
 
-import com.proyecto_redes.demo.DTO.EstadoDTO;
-import com.proyecto_redes.demo.model.Estado;
-import com.proyecto_redes.demo.model.Registro;
+import com.proyecto_redes.demo.DTO.RedDTO;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
@@ -15,13 +12,11 @@ import java.util.List;
 @RestController
 public class RedesController {
 
-    List<Registro>registroList=new ArrayList<>();
+    List<RedDTO>redes=new ArrayList<>();
 
-    @PostMapping("/estadoRed")
-    public ResponseEntity<?> comprobarRed(@RequestBody Registro registro){
-
-        registroList.add(registro);
-
+    @PostMapping("/registrar")
+    public ResponseEntity<?> registrar(@RequestBody RedDTO redDTO){
+        redes.add(redDTO);
         return ResponseEntity.ok(201);
 
     }
