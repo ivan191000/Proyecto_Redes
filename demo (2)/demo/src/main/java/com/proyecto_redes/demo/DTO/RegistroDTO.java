@@ -1,12 +1,14 @@
 package com.proyecto_redes.demo.DTO;
 
+import com.proyecto_redes.demo.model.Estado;
+
 public class RegistroDTO {
     private RedDTO redDTO;
-    private EstadoDTO estadoDTO;
+    private EstadoDTO estado;
 
-    public RegistroDTO(RedDTO redDTO, EstadoDTO estadoDTO) {
+    public RegistroDTO(RedDTO redDTO, EstadoDTO estado) {
         this.redDTO = redDTO;
-        this.estadoDTO = estadoDTO;
+        this.estado = estado;
     }
 
     public RegistroDTO() {
@@ -20,11 +22,11 @@ public class RegistroDTO {
         this.redDTO = redDTO;
     }
 
-    public EstadoDTO getEstadoDTO() {
-        return estadoDTO;
+    public EstadoDTO getEstado() {
+        return estado;
     }
 
-    public void setEstadoDTO(EstadoDTO estadoDTO) {
-        this.estadoDTO = estadoDTO;
+    public void setEstado(EstadoDTO estado) {
+        this.estado = estado;
     }
 }
