@@ -5,11 +5,11 @@ import java.util.List;
 
 public class ListaRedesDTO {
     private List<RedDTO> redes;
-    private String estador;
+    private String estado;
 
-    public ListaRedesDTO(List<RedDTO> redes, String estador) {
+    public ListaRedesDTO(List<RedDTO> redes, String estado) {
         this.redes = redes;
-        this.estador = estador;
+        this.estado = estado;
     }
 
     public ListaRedesDTO() {
@@ -24,10 +24,10 @@ public class ListaRedesDTO {
     }
 
     public String getEstador() {
-        return estador;
+        return estado;
     }
 
-    public void setEstador(String estador) {
-        this.estador = estador;
+    public void setEstador(String estado) {
+        this.estado = estado;
     }
 }
