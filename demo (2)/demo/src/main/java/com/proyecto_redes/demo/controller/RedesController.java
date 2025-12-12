@@ -28,9 +28,11 @@ public class RedesController {
     }
 
     @GetMapping("/consultar")
-    public ResponseEntity<?> consultaHistorico(){
-
-        return ResponseEntity.ok(new ListaRedesDTO(redes, "conectado"));
+    public ResponseEntity<?> consulta(){
+       if(redes==null){
+           return ResponseEntity.badRequest().body("No se encuentra ninguna red");
+       }
+       return ResponseEntity.ok(new ListaRedesDTO(redes, "Conectado"));
 
     }
 
