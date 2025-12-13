@@ -13,7 +13,9 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 @RestController
 public class RedesController {
@@ -22,17 +24,22 @@ public class RedesController {
 
     @PostMapping("/registrar")
     public ResponseEntity<?> registrar(@RequestBody RedDTO redDTO){
+        for(RedDTO r:redes){
+            if(r.getNombre().equals(redDTO.getNombre())){
+                return ResponseEntity.status(400).body("esta red ya existe");
+            }
+        }
         redes.add(redDTO);
         return ResponseEntity.status(201).body(redDTO);
 
     }
 
     @GetMapping("/consultar")
-    public ResponseEntity<?> consulta(){
-       if(redes==null){
-           return ResponseEntity.badRequest().body("No se encuentra ninguna red");
+    public ResponseEntity<List<RedDTO>> consulta(){
+       if(redes.isEmpty()){
+           return ResponseEntity.status(404).build();
        }
-       return ResponseEntity.ok(new ListaRedesDTO(redes, "Conectado"));
+       return ResponseEntity.ok(redes);
 
     }
 
