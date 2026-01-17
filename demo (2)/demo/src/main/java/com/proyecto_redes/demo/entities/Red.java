@@ -28,5 +28,6 @@ public class Red {
     @NotBlank
     private String password;
     @Column(nullable = true)
+    @NotBlank
     private String seguridad;
 }
